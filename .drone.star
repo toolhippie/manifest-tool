@@ -1,7 +1,7 @@
 def main(ctx):
 	return [
 		docker(ctx, 'amd64'),
-		docker(ctx, 'arm'),
+		# docker(ctx, 'arm'),
 		docker(ctx, 'arm64'),
 
 		manifest(ctx),
@@ -135,7 +135,7 @@ def manifest(ctx):
 		],
 		'depends_on': [
 			'amd64',
-			'arm',
+			# 'arm',
 			'arm64',
 		],
 		'trigger': {
