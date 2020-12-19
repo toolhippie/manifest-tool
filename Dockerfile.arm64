@@ -1,0 +1,15 @@
+FROM webhippie/golang:latest-arm64v8
+
+LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
+  org.label-schema.name="Manifest Tool" \
+  org.label-schema.vendor="Thomas Boerger" \
+  org.label-schema.schema-version="1.0"
+
+ENTRYPOINT [""]
+
+RUN apk update && \
+  apk upgrade && \
+  rm -rf /var/cache/apk/*
+
+RUN wget -q -O /usr/bin/manifest-tool https://github.com/estesp/manifest-tool/releases/download/v1.0.3/manifest-tool-linux-arm64 && \
+  chmod +x /usr/bin/manifest-tool
