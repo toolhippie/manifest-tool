@@ -1,4 +1,4 @@
-FROM webhippie/golang:latest-arm64v8
+FROM webhippie/alpine:latest-arm64v8
 
 LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
   org.label-schema.name="Manifest Tool" \
