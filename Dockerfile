@@ -4,7 +4,7 @@ ENTRYPOINT [""]
 # renovate: datasource=github-releases depName=estesp/manifest-tool
 ENV MANIFEST_TOOL_VERSION=1.0.3
 
-ARG TARGETARCH=amd64
+ARG TARGETARCH
 
 RUN apk update && \
   apk upgrade && \
