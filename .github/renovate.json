@@ -3,10 +3,12 @@
     "extends": [
         "github>webhippie/renovate:docker"
     ],
-    "packageRules": [{
-        "groupName": "manifest-tool packages",
-        "matchDatasources": [
-            "github-releases"
-        ]
-    }]
+    "packageRules": [
+        {
+            "groupName": "manifest-tool packages",
+            "matchDatasources": [
+                "github-releases"
+            ]
+        }
+    ]
 }

@@ -1,4 +1,4 @@
-FROM webhippie/alpine:latest
+FROM webhippie/alpine:3.15
 ENTRYPOINT [""]
 
 # renovate: datasource=github-releases depName=estesp/manifest-tool
