@@ -8,7 +8,7 @@ ARG TARGETARCH
 
 RUN apk update && \
   apk upgrade && \
-  url -sSLo- https://github.com/estesp/manifest-tool/releases/download/v${MANIFEST_TOOL_VERSION}/binaries-manifest-tool-${MANIFEST_TOOL_VERSION}.tar.gz | tar -xvzf - -C /tmp && \
+  curl -sSLo- https://github.com/estesp/manifest-tool/releases/download/v${MANIFEST_TOOL_VERSION}/binaries-manifest-tool-${MANIFEST_TOOL_VERSION}.tar.gz | tar -xvzf - -C /tmp && \
   case "${TARGETARCH}" in \
     'amd64') \
       cp /tmp/manifest-tool-linux-amd64 /usr/bin/manifest-tool; \
