@@ -2,23 +2,25 @@ FROM webhippie/alpine:3.17
 ENTRYPOINT [""]
 
 # renovate: datasource=github-releases depName=estesp/manifest-tool
-ENV MANIFEST_TOOL_VERSION=1.0.3
+ENV MANIFEST_TOOL_VERSION=2.0.6
 
 ARG TARGETARCH
 
 RUN apk update && \
   apk upgrade && \
+  url -sSLo- https://github.com/estesp/manifest-tool/releases/download/v${MANIFEST_TOOL_VERSION}/binaries-manifest-tool-${MANIFEST_TOOL_VERSION}.tar.gz | tar -xvzf - -C /tmp && \
   case "${TARGETARCH}" in \
     'amd64') \
-      curl -sSLo /usr/bin/manifest-tool https://github.com/estesp/manifest-tool/releases/download/v${MANIFEST_TOOL_VERSION}/manifest-tool-linux-amd64; \
+      cp /tmp/manifest-tool-linux-amd64 /usr/bin/manifest-tool; \
       ;; \
     'arm64') \
-      curl -sSLo /usr/bin/manifest-tool https://github.com/estesp/manifest-tool/releases/download/v${MANIFEST_TOOL_VERSION}/manifest-tool-linux-arm64; \
+      cp /tmp/manifest-tool-linux-arm64 /usr/bin/manifest-tool; \
       ;; \
     'arm') \
-      curl -sSLo /usr/bin/manifest-tool https://github.com/estesp/manifest-tool/releases/download/v${MANIFEST_TOOL_VERSION}/manifest-tool-linux-armv6; \
+      cp /tmp/manifest-tool-linux-armv6 /usr/bin/manifest-tool; \
       ;; \
     *) echo >&2 "error: unsupported architecture '${TARGETARCH}'"; exit 1 ;; \
   esac && \
+  rm -f /tmp/manifest-tool* && \
   chmod 755 /usr/bin/manifest-tool && \
   rm -rf /var/cache/apk/*
