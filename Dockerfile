@@ -2,7 +2,7 @@ FROM webhippie/alpine:3.17
 ENTRYPOINT [""]
 
 # renovate: datasource=github-releases depName=estesp/manifest-tool
-ENV MANIFEST_TOOL_VERSION=2.0.6
+ENV MANIFEST_TOOL_VERSION=2.0.8
 
 ARG TARGETARCH
 
