@@ -2,7 +2,7 @@ FROM ghcr.io/dockhippie/alpine:3.21
 ENTRYPOINT [""]
 
 # renovate: datasource=github-releases depName=estesp/manifest-tool
-ENV MANIFEST_TOOL_VERSION=2.1.9
+ENV MANIFEST_TOOL_VERSION=2.2.0
 
 ARG TARGETARCH
 
